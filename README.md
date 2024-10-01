@@ -1,7 +1,7 @@
 # MultiCast Web
 
 MultiCast V2.0 for web is still under construction.
-There will be an update for the original application version of MultiCast for V2.0 when it's ready.
+There will be an update for the original [application version of MultiCast](https://github.com/RageBoy152/multicast) when it's ready.
 
 ## Technologies Used
 - [React JS](https://react.dev)
