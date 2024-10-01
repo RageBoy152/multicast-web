@@ -1,15 +1,48 @@
-* {
-  margin: 0!important;
-  padding: 0!important;
-  box-sizing: border-box!important;
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body p {
+    @apply text-base;
+  }
 }
 
 
 
-/* :root {
+/*   VARIABLES FOR USE IN PLAIN CSS   */
+:root {
+  --color-text: theme('colors.text');
+  --color-text-shade: theme('colors.text-shade');
+}
 
-} */
+
+
+/*   CUSTOMIZE SCROLLBAR   */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background-color: var(--color-text-shade); width: 5px; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-text); }
 
 
 
-/* @media (prefers-color-scheme: light) {} */
+.feedCard .feedCardHeading {
+  transform: translateY(-100%);
+  opacity: 0;
+
+  user-select: none;
+  pointer-events: none;
+
+  transition: 0.15s ease-in-out opacity, 0.15s ease-in-out transform;
+}
+
+.feedCard:hover .feedCardHeading, .feedCardActive .feedCardHeading {
+  transform: translateY(-1px);
+  opacity: 1;
+  
+  user-select: unset;
+  pointer-events: unset;
+}
