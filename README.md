@@ -1,8 +1,14 @@
-# React + Vite
+# MultiCast Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MultiCast V2.0 for web is still under construction.
+There will be an update for the original application version of MultiCast for V2.0 when it's ready.
 
-Currently, two official plugins are available:
+## Technologies Used
+- [React JS](https://react.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Electron JS](https://www.electronjs.org) (App version only)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# License
+
+This project is licensed under the Apache 2.0 License. More details can be found in the [LICENSE](https://github.com/RageBoy152/multicast-web/blob/main/LICENSE).
