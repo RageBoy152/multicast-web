@@ -10,7 +10,7 @@ export function OutputCardPreview({ outputFeeds, outputName }) {
 
 
   return (
-    <div className="bg-primary aspect-video flex flex-wrap">
+    <div className="bg-accent aspect-video flex flex-wrap">
       {outputFeeds.map((outputFeed, i) => {
         if (outputFeed.feedId) {
           //  return feed card with preview mode

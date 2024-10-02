@@ -1,55 +1,35 @@
 //  React Hooks
 // import { useState } from "react";
-import useUserConfig from './useUserConfig';
+import useUserData from './useUserData';
 
 
 //  React Compontents
 import { FeedListSideBar } from "./FeedListSideBar";
 import { OutputList } from "./OutputList";
 import { NavBar } from "./navBar";
+import { ContextMenu } from './ContextMenu';
+import { FeedModal } from './FeedModal';
+import { useState } from 'react';
 
 
 
 export default function App() {
-  const [userConfig, setUserConfig] = useUserConfig({});
+  const [userData, setUserData] = useUserData({});
 
-  console.log(userConfig);
-  
-  
-  function deleteFeed() {
-    let feedElem = $('.feedCardActive')[0]
-    let outputName = feedElem.dataset.outputname;
+  const [editFeedName, setEditFeedName] = useState('');
+  const [editFeedSource, setEditFeedSource] = useState('');
 
-    if (!outputName) {
-      //  remove from feedlist
-      
-      setUserConfig((currentConfig) => ({
-        ...currentConfig,
-        feedList: [...currentConfig.feedList.filter(feedObj => feedObj.feedId != feedElem.id)]
-      }))
-    }
-    else {
-      //  remove from output feeds array
-      
-      
-    }
-    
-
-    console.log(feedElem.id, outputName);
-  }
+  console.log(userData);
 
 
   return (
     <>
-      <div id="contextMenu" className="bg-primary absolute z-50 flex-col p-1 hidden">
-        <a href="#" className="hover:bg-secondary p-2"><i className="bi bi-clipboard"></i> Copy Credits</a>
-        <a href="#" className="hover:bg-secondary p-2"><i className="bi bi-pencil"></i> Edit Feed</a>
-        <a onClick={deleteFeed} className="hover:bg-secondary hover:text-red-600 p-2 cursor-pointer"><i className="bi bi-trash"></i> Delete Feed</a>
-      </div>
-      <NavBar />
+      <FeedModal setUserData={setUserData} editFeedName={editFeedName} editFeedSource={editFeedSource} />
+      <ContextMenu setUserData={setUserData} userData={userData} setEditFeedName={setEditFeedName} setEditFeedSource={setEditFeedSource} />
+      <NavBar notifications={userData.notifications} setUserData={setUserData} />
       <main className="flex">
-        <FeedListSideBar feedListData={userConfig.feedList} setUserConfig={setUserConfig} />
-        <OutputList outputsData={userConfig.outputs} />
+        <FeedListSideBar feedListData={userData.feedList} />
+        <OutputList outputsData={userData.outputs} />
       </main>
     </>
   )

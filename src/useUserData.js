@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-function getConfig(initialValue) {
+function getData(initialValue) {
   let localStorageData = localStorage.getItem("rage.multicast.config");
 
   //  return local storage value or return initialValue or result of initialValue()
@@ -9,16 +9,16 @@ function getConfig(initialValue) {
 }
 
 
-export default function useUserConfig(initialValue) {
-  const [userConfig, setUserConfig] = useState(getConfig(initialValue));
+export default function useUserData(initialValue) {
+  const [userData, setUserData] = useState(getData(initialValue));
 
 
   //  save to local storage on update
   useEffect(() => {
-    localStorage.setItem("rage.multicast.config", JSON.stringify(userConfig));
+    localStorage.setItem("rage.multicast.config", JSON.stringify(userData));
     // console.log(`User config updated and saved as: ${JSON.stringify(userConfig, null, 2)}`)
-  }, [userConfig])
+  }, [userData])
   
 
-  return [userConfig, setUserConfig];
+  return [userData, setUserData];
 }
