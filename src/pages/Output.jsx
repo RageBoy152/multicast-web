@@ -1,6 +1,6 @@
 //  React Hooks
-// import { useState } from "react";
-// import useUserData from './useUserData';
+import { useEffect } from "react";
+import useUserData from '../hooks/useUserData';
 
 
 //  React Compontents
@@ -9,6 +9,25 @@
 
 
 export default function Output() {
+  const [userData, setUserData] = useUserData({});
+
+  useEffect(() => {
+    const syncState = (e) => {
+      if (e.key === 'rage.multicast.config')
+        setUserData(JSON.parse(e.newValue))
+    }
+    window.addEventListener('storage', syncState)
+
+
+    return () => {
+      window.removeEventListener('storage', syncState)
+    }
+  }, [])
+
+
+  console.log(userData)
+
+
   return (
     <>
       <main className="flex">

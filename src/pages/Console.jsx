@@ -1,5 +1,5 @@
 //  React Hooks
-// import { useState } from "react";
+import { useEffect } from "react";
 import useUserData from '../hooks/useUserData';
 
 
@@ -15,8 +15,22 @@ import { useState } from 'react';
 
 export default function Console() {
   const [userData, setUserData] = useUserData({});
-
   const [editFeedObj, setEditFeedObj] = useState({});
+
+
+  useEffect(() => {
+    const syncState = (e) => {
+      if (e.key === 'rage.multicast.config')
+        setUserData(JSON.parse(e.newValue))
+    }
+    window.addEventListener('storage', syncState)
+
+
+    return () => {
+      window.removeEventListener('storage', syncState)
+    }
+  }, [])
+
 
   console.log(userData);
 
