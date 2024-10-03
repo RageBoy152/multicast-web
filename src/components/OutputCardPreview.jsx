@@ -1,6 +1,10 @@
 import { FeedCard } from "./FeedCard";
 import { Feed } from "./Feed";
 
+
+import { feedCardDragOver, feedCardDrop } from '../utils/feedCardDragDrop';
+
+
 export function OutputCardPreview({ outputFeeds, outputName, inOutput, setUserData, userData }) {
   //  define height and flex basis classes depending on feed count
 
@@ -22,7 +26,7 @@ export function OutputCardPreview({ outputFeeds, outputName, inOutput, setUserDa
         else {
           //  no feed here: return outputLetter - feedIndex
           return (
-            <div key={i} className={`bg-accent aspect-video border flex justify-center items-center border-primary ${outputPreviewClassNameProps.basisClass} ${outputPreviewClassNameProps.heightClass} flex-grow`}>
+            <div key={i} onDragOver={feedCardDragOver} onDrop={(e) => feedCardDrop(e, outputFeed.feedId)} className={`bg-accent aspect-video border flex justify-center items-center border-primary ${outputPreviewClassNameProps.basisClass} ${outputPreviewClassNameProps.heightClass} flex-grow`}>
               <p className="text-sm">{outputName.split('Output ')[1]} - {i+1}</p>
             </div>
           )

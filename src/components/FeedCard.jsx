@@ -1,3 +1,7 @@
+import { feedCardDragOver, feedCardDragStart, feedCardDrop } from '../utils/feedCardDragDrop';
+
+
+
 function openCtxMenu(e) {
   e.preventDefault();
 
@@ -24,31 +28,22 @@ export function FeedCard({ outputName, feedId, feedName, videoId, volume, basisC
   let feedCardHeadingContextClassStyles = basisClass == '' ? 'bg-primary' : 'absolute top-0 w-full bg-primary/80 feedCardHeading';
 
 
-  function dragStart(e) {
-    e.dataTransfer.setData('feedId', feedId);
-  }
-  function dragOver(e) {
-    // e.preventDefault();
-    
-    if (e.target.classList.contains('feed-card-drag-over-element')) {
-      // $(`${e.dataTransfer.getData('feedId')}`)[0].classList.add('cursor-pointer')
-    }
-  }
-  function dragEnd(e) {
-    e.preventDefault();
+  function drop(e, targetFeedId) {
+    if (basisClass == '') { e.preventDefault(); return; }
 
-    console.log(e.dataTransfer.getData('feedId'))
+    if (targetFeedId == e.dataTransfer.getData('feedId')) { console.log("same feed, return"); return; }
+    console.log("hi again")
   }
 
 
   return (
-    <div onContextMenu={openCtxMenu} onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd} className={`${feedCardContextClassStyles} cursor-grab active:cursor-grabbing relative flex flex-col justify-center feed-card-drag-over-element ${basisClass} ${heightClass}`} id={feedId} data-outputname={outputName}>
-      <div className={`flex justify-between items-center px-3 py-1 ${feedCardHeadingContextClassStyles} feed-card-drag-over-element`}>
-        <h3 className="h-min text-l feed-card-drag-over-element">{feedName}</h3>
-        <a onClick={openCtxMenu} className="h-min text-sm cursor-pointer ctxMenuBlurIgnore feed-card-drag-over-element"><i className="bi bi-three-dots-vertical ctxMenuBlurIgnore"></i></a>
+    <div onContextMenu={openCtxMenu} onDragStart={(e) => feedCardDragStart(e, feedId)} onDragOver={feedCardDragOver} onDrop={(e) => feedCardDrop(e, feedId, basisClass == '')} draggable className={`${feedCardContextClassStyles} cursor-grab active:cursor-grabbing relative flex flex-col justify-center ${basisClass} ${heightClass}`} id={feedId} data-outputname={outputName}>
+      <div className={`flex justify-between items-center px-3 py-1 ${feedCardHeadingContextClassStyles}`}>
+        <h3 className="h-min text-l">{feedName}</h3>
+        <a onClick={openCtxMenu} className="h-min text-sm cursor-pointer ctxMenuBlurIgnore"><i className="bi bi-three-dots-vertical ctxMenuBlurIgnore"></i></a>
       </div>
-      <div className="bg-accent feed-card-drag-over-element">
-        <img src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`} className="feed-card-drag-over-element w-full aspect-video h-full object-contain feedCardImg" />
+      <div className="bg-accent">
+        <img src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`} className="w-full aspect-video h-full object-contain feedCardImg" />
       </div>
     </div>
   )
