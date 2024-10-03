@@ -1,6 +1,7 @@
 //  React Hooks
 import { useEffect } from "react";
 import useUserData from '../hooks/useUserData';
+import { OutputCardPreview } from "../components/OutputCardPreview";
 
 
 //  React Compontents
@@ -24,15 +25,16 @@ export default function Output() {
     }
   }, [])
 
-
+  
   console.log(userData)
 
 
+  let outputId = new URL(window.location).searchParams.get('outputId');
+  let outputObj = userData.outputs.find(outputObj => outputObj.outputId == outputId)
+
   return (
     <>
-      <main className="flex">
-        <p>Hi this is an output</p>
-      </main>
+      <OutputCardPreview outputFeeds={outputObj.feeds} {...outputObj} inOutput={true} setUserData={setUserData} userData={userData} />
     </>
   )
 }

@@ -16,6 +16,9 @@
 
 /*   VARIABLES FOR USE IN PLAIN CSS   */
 :root {
+  --color-primary: theme('colors.primary');
+  --color-secondary: theme('colors.secondary');
+  --color-accent: theme('colors.accent');
   --color-text: theme('colors.text');
   --color-text-shade: theme('colors.text-shade');
 }
@@ -46,3 +49,60 @@
   user-select: unset;
   pointer-events: unset;
 }
+
+
+
+
+/*  volume input element  */
+.volumeInput {
+  appearance: none;
+  background: transparent;
+
+  writing-mode: vertical-lr;
+  transform: scaleY(-1);
+}
+
+
+/*  volume input track  */
+.volumeInput::-webkit-slider-runnable-track {
+    width:7px;
+    @apply bg-secondary/30;
+
+    position: relative;
+}
+
+/*  volume meter indicator  */
+
+.volumeInput::before {
+    content: '';
+    position: absolute;
+
+    top:0; left:0;
+    width: 7px; height: 100%;
+
+    
+    background: linear-gradient(180deg, rgba(25,194,41,1) 42%, rgba(199,210,7,1) 60%, rgba(187,5,5,1) 85%);
+    
+    /*  cut off top of grad  */
+    clip-path: inset(0 0 var(--clip-top, 100%) 0);
+    transition: 0.15s ease-in-out clip-path;
+}
+
+
+
+/*  volume input thumb  */
+
+.volumeInput::-webkit-slider-thumb {
+    appearance:none;
+    cursor:pointer;
+
+    @apply bg-accent/50 border border-accent;
+
+    height:28px;
+    width:20px;
+
+    margin-block:-7px;
+}
+
+.volumeInput:hover::-webkit-slider-thumb { @apply bg-accent/60; }
+.volumeInput::-webkit-slider-thumb:hover { @apply bg-accent/90; }

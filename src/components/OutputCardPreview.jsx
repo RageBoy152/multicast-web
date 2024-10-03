@@ -1,6 +1,7 @@
 import { FeedCard } from "./FeedCard";
+import { Feed } from "./Feed";
 
-export function OutputCardPreview({ outputFeeds, outputName }) {
+export function OutputCardPreview({ outputFeeds, outputName, inOutput, setUserData, userData }) {
   //  define height and flex basis classes depending on feed count
 
   let outputPreviewClassNameProps = {
@@ -10,12 +11,12 @@ export function OutputCardPreview({ outputFeeds, outputName }) {
 
 
   return (
-    <div className="bg-accent aspect-video flex flex-wrap">
+    <div className={`bg-accent ${inOutput ? 'h-screen' : 'aspect-video'} flex flex-wrap`}>
       {outputFeeds.map((outputFeed, i) => {
         if (outputFeed.feedId) {
           //  return feed card with preview mode
           return (
-            <FeedCard key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} outputName={outputName} />
+            inOutput ? <Feed key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} setUserData={setUserData} userData={userData} outputName={outputName} /> : <FeedCard key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} outputName={outputName} />
           )
         }
         else {

@@ -1,8 +1,9 @@
 import { toggleFeedModal } from '../utils/toggleFeedModal';
+import { copyCredits } from '../utils/copyCredits';
 
 
 
-export function ContextMenu({ setUserData, userData, setEditFeedObj }) {
+export function ContextMenu({ setUserData, userData, setEditFeedObj, editFeedObj }) {
   function deleteFeed() {
     let feedElem = $('.feedCardActive')[0]
     let outputName = feedElem.dataset.outputname;
@@ -66,7 +67,7 @@ export function ContextMenu({ setUserData, userData, setEditFeedObj }) {
 
   return (
     <div id="contextMenu" className="bg-primary absolute z-50 flex-col p-1 hidden">
-      <a href="#" className="hover:bg-secondary p-2"><i className="bi bi-clipboard"></i> Copy Credits</a>
+      <a onClick={() => copyCredits(userData, setUserData)} className="hover:bg-secondary p-2 cursor-pointer"><i className="bi bi-clipboard"></i> Copy Credits</a>
       <a onClick={toggleFeedModalHandler} className="hover:bg-secondary p-2 cursor-pointer"><i className="bi bi-pencil"></i> Edit Feed</a>
       <a onClick={deleteFeed} className="hover:bg-secondary hover:text-red-600 p-2 cursor-pointer"><i className="bi bi-trash"></i> Delete Feed</a>
     </div>

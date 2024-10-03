@@ -38,11 +38,11 @@ export default function Console() {
   return (
     <>
       <FeedModal setUserData={setUserData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
-      <ContextMenu setUserData={setUserData} userData={userData} setEditFeedObj={setEditFeedObj} />
+      <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <NavBar notifications={userData.notifications} setUserData={setUserData} />
       <main className="flex">
         <FeedListSideBar feedListData={userData.feedList} />
-        <OutputList outputsData={userData.outputs} />
+        <OutputList outputsData={userData.outputs} setUserData={setUserData} />
       </main>
     </>
   )
