@@ -1,8 +1,8 @@
-import { toggleFeedModal } from './toggleFeedModal';
+import { toggleFeedModal } from '../utils/toggleFeedModal';
 
 
 
-export function ContextMenu({ setUserData, userData, setEditFeedName, setEditFeedSource }) {
+export function ContextMenu({ setUserData, userData, setEditFeedObj }) {
   function deleteFeed() {
     let feedElem = $('.feedCardActive')[0]
     let outputName = feedElem.dataset.outputname;
@@ -47,9 +47,6 @@ export function ContextMenu({ setUserData, userData, setEditFeedName, setEditFee
         notifications: [getNotif(feedName), ...currentData.notifications]
       }))
     }
-    
-
-    console.log(feedElem.id, outputName);
   }
 
 
@@ -60,10 +57,8 @@ export function ContextMenu({ setUserData, userData, setEditFeedName, setEditFee
 
     let feedObj = !outputName ? userData.feedList.find(feedObj => feedObj.feedId == feedElem.id) : userData.outputs.find(outputObj => outputObj.outputName == outputName).feeds.find(feed => feed.feedId == feedElem.id);
     
-    console.log(feedObj)
 
-    setEditFeedName(feedObj.feedName);
-    setEditFeedSource(`https://youtube.com/watch?v=${feedObj.videoId}`);
+    setEditFeedObj({...feedObj, outputName: outputName});
     toggleFeedModal();
   }
 

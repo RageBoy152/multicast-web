@@ -1,4 +1,4 @@
-import { toggleFeedModal } from './toggleFeedModal';
+import { toggleFeedModal } from '../utils/toggleFeedModal';
 
 
 

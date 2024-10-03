@@ -5,7 +5,7 @@ import { NotificationDropdown } from './NotificationDropdown';
 export function NavBar({ notifications, setUserData }) {
 
   function toggleNotificationsDropdown() {
-    $('#notifications-container').fadeToggle(500);
+    $('#notifications-container').fadeToggle(200);
   }
 
 
