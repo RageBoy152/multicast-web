@@ -41,7 +41,7 @@ export default function Console() {
       <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <NavBar notifications={userData.notifications} setUserData={setUserData} />
       <main className="flex">
-        <FeedListSideBar feedListData={userData.feedList} />
+        <FeedListSideBar feedListData={userData.feedList} setUserData={setUserData} />
         <OutputList outputsData={userData.outputs} setUserData={setUserData} />
       </main>
     </>

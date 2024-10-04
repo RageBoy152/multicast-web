@@ -22,7 +22,7 @@ function openCtxMenu(e) {
 
 
 
-export function FeedCard({ outputName, feedId, feedName, videoId, volume, basisClass = '', heightClass = '' }) {
+export function FeedCard({ outputName, feedId, feedName, videoId, volume, basisClass = '', heightClass = '', setUserData, feedIndex }) {
   //  defines context dependant styles for different parts of the feedcard. context dependant meanin either in the feeds list or in the output preview
   let feedCardContextClassStyles = basisClass == '' ? 'w-9/12' : 'flex-grow feedCard border border-primary';
   let feedCardHeadingContextClassStyles = basisClass == '' ? 'bg-primary' : 'absolute top-0 w-full bg-primary/80 feedCardHeading';
@@ -37,12 +37,12 @@ export function FeedCard({ outputName, feedId, feedName, videoId, volume, basisC
 
 
   return (
-    <div onContextMenu={openCtxMenu} onDragStart={(e) => feedCardDragStart(e, feedId)} onDragOver={feedCardDragOver} onDrop={(e) => feedCardDrop(e, feedId, basisClass == '')} draggable className={`${feedCardContextClassStyles} cursor-grab active:cursor-grabbing relative flex flex-col justify-center ${basisClass} ${heightClass}`} id={feedId} data-outputname={outputName}>
+    <div onContextMenu={openCtxMenu} onDragStart={(e) => feedCardDragStart(e, feedId, outputName)} onDragOver={feedCardDragOver} onDrop={(e) => feedCardDrop(e, feedIndex, feedId, outputName, basisClass == '', setUserData)} draggable className={`${feedCardContextClassStyles} cursor-grab active:cursor-grabbing relative flex flex-col justify-center ${basisClass} ${heightClass}`} id={feedId} data-outputname={outputName}>
       <div className={`flex justify-between items-center px-3 py-1 ${feedCardHeadingContextClassStyles}`}>
         <h3 className="h-min text-l">{feedName}</h3>
         <a onClick={openCtxMenu} className="h-min text-sm cursor-pointer ctxMenuBlurIgnore"><i className="bi bi-three-dots-vertical ctxMenuBlurIgnore"></i></a>
       </div>
-      <div className="bg-accent">
+      <div className="bg-accent h-full">
         <img src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`} className="w-full aspect-video h-full object-contain feedCardImg" />
       </div>
     </div>

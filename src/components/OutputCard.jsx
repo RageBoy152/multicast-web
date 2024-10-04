@@ -51,7 +51,7 @@ export function OutputCard({ feeds, outputName, outputId, setUserData }) {
       <div className="bg-primary flex justify-between items-center px-3 py-2">
           <Link to={`/output?outputId=${outputId}`} target="_blank" className="h-min text-l"><i className="bi bi-box-arrow-up-right mr-1"></i> {outputName}</Link>
       </div>
-      <OutputCardPreview outputFeeds={feeds} outputName={outputName} />
+      <OutputCardPreview outputFeeds={feeds} outputName={outputName} setUserData={setUserData} />
       <div className="bg-primary flex gap-3 items-center px-3 py-2 text-l">
           <label className="h-min">Feeds:</label>
           <input type="number" value={newFeedCount} min={1} max={9} onChange={updateFeedCount} className="bg-secondary w-[45px] text-center" />
