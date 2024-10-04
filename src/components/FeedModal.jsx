@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { toggleFeedModal } from '../utils/toggleFeedModal';
+import { toggleModal } from '../utils/toggleModal';
 
 
 
@@ -87,7 +87,7 @@ export function FeedModal({ setUserData, editFeedObj, setEditFeedObj }) {
 
 
   function toggleFeedModalHandler() {
-    toggleFeedModal(() => {
+    toggleModal('feed-modal-container', () => {
       setNameInputErr('');
       setSourceInputErr('');
       setEditFeedObj({});
@@ -100,7 +100,7 @@ export function FeedModal({ setUserData, editFeedObj, setEditFeedObj }) {
 
   return (
     <div onMouseDown={(e)=>{if (e.target.id == "feed-modal-container") toggleFeedModalHandler()}} id="feed-modal-container" className="bg-black/25 flex items-top justify-center absolute z-[60] w-full h-full" style={{display: "none"}}>
-      <div className="bg-primary border border-secondary px-2 flex flex-col items-center mt-36 w-1/3 h-min">
+      <div className="bg-primary border border-secondary px-2 flex flex-col items-center mt-24 w-1/3 h-min">
         <div className="border-b border-accent px-3 py-3 flex justify-between items-center w-full">
           <h3 className="text-xl">{!editFeedObj.feedName ? 'Add Feed' : `Edit Feed '${editFeedObj.feedName}'`}</h3>
           <a className="cursor-pointer text-text-shade hover:text-text" onClick={toggleFeedModalHandler}><i className="bi bi-x-lg"></i></a>

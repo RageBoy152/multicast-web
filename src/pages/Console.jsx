@@ -10,6 +10,7 @@ import { NavBar } from "../components/NavBar";
 import { ContextMenu } from '../components/ContextMenu';
 import { FeedModal } from '../components/FeedModal';
 import { useState } from 'react';
+import { SettingsModal } from "../components/SettingsModal";
 
 
 
@@ -38,6 +39,7 @@ export default function Console() {
   return (
     <>
       <FeedModal setUserData={setUserData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
+      <SettingsModal userData={userData} setUserData={setUserData} />
       <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <NavBar notifications={userData.notifications} setUserData={setUserData} />
       <main className="flex">

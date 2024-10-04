@@ -30,17 +30,23 @@ export function OutputCard({ feeds, outputName, outputId, setUserData }) {
       else {
         newFeedsArray = feeds.slice(0, Number(newFeedCount));
       }
-      
-      
 
-      setUserData((currentUserData) => ({
+
+
+      setUserData((currentUserData) => {
+        let movedFeeds = [...currentUserData.outputs.filter(outputObj => outputObj.outputId == outputId)[0].feeds.filter((feedObj, i) => i+1 > newFeedCount)].filter(feedObj => feedObj.feedId && feedObj);
+
+
+        return ({
         ...currentUserData,
+        feedList: [...movedFeeds, ...currentUserData.feedList],
         outputs: [...currentUserData.outputs.map(outputObj => outputObj.outputId == outputId ? {
           ...outputObj,
           feedCount: newFeedCount,
           feeds: newFeedsArray
-        } : outputObj)]
-      }))
+          } : outputObj)]
+        })
+      })
     }
   }, [newFeedCount])
 

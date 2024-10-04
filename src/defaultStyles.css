@@ -27,7 +27,7 @@
 
 /*   CUSTOMIZE SCROLLBAR   */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-thumb { background-color: var(--color-text-shade); width: 5px; border-radius: 3px; }
+::-webkit-scrollbar-thumb { z-index: 10; cursor: default; background-color: var(--color-text-shade); width: 5px; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background-color: var(--color-text); }
 
 
@@ -94,7 +94,7 @@
 
 .volumeInput::-webkit-slider-thumb {
     appearance:none;
-    cursor:pointer;
+    cursor: pointer;
 
     @apply bg-accent/50 border border-accent;
 

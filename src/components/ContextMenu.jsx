@@ -1,4 +1,4 @@
-import { toggleFeedModal } from '../utils/toggleFeedModal';
+import { toggleModal } from '../utils/toggleModal';
 import { copyCredits } from '../utils/copyCredits';
 
 
@@ -60,7 +60,7 @@ export function ContextMenu({ setUserData, userData, setEditFeedObj, editFeedObj
     
 
     setEditFeedObj({...feedObj, outputName: outputName});
-    toggleFeedModal();
+    toggleModal('feed-modal-container');
   }
 
 
