@@ -1,4 +1,7 @@
+import ReactPlayer from 'react-player';
+
 import { useEffect, useState } from "react";
+
 import { copyCredits } from "../utils/copyCredits";
 
 
@@ -47,15 +50,17 @@ export function Feed({ outputName, feedId, videoId, volume, basisClass = '', hei
   return (
     <div className={`${feedCardContextClassStyles} relative flex items-center ${basisClass} ${heightClass}`}>
       <div className="bg-primary flex flex-col items-center h-full px-2">
-        <p className="text-xs h-[10%] flex items-center">{newVolume}%</p>
-        <input className="volumeInput h-[65%]" type="range" min={0} max={100} value={newVolume} onChange={setVol} />
-        <div className="h-[25%] flex flex-col justify-center gap-3">
+        {/* <p className="text-xs h-[10%] flex items-center">{newVolume}%</p> */}
+        {/* <input className="volumeInput h-[65%]" type="range" min={0} max={100} value={newVolume} onChange={setVol} /> */}
+
+        {/*    FOR APP VERSION - MAKE THIS HEIGHT H-25%    */}
+        <div className="h-[100%] flex flex-col justify-center gap-3">
           <a onClick={() => copyCredits(userData, setUserData, outputName, feedId)} className="bg-accent hover:bg-accent/80 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center"><i className="bi bi-clipboard"></i></a>
-          <a className="bg-accent hover:bg-accent/80 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center"><i className="bi bi-chat-left-text"></i></a>
+          <a href={`https://www.youtube.com/live_chat?is_popout=1&v=${videoId}`} target='_blank' className="bg-accent hover:bg-accent/80 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center"><i className="bi bi-chat-left-text"></i></a>
         </div>
       </div>
       <div className="bg-accent w-full h-full">
-        <iframe src={`https://youtube.com/embed/${videoId}?autoplay=1`} className="h-full w-full"></iframe>
+        <ReactPlayer url={`https://youtube.com/embed/${videoId}?autoplay=1`} playing={true} controls={true} width={"100%"} height={"100%"} />
       </div>
     </div>
   )

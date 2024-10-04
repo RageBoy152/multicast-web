@@ -11,6 +11,7 @@ import { ContextMenu } from '../components/ContextMenu';
 import { FeedModal } from '../components/FeedModal';
 import { useState } from 'react';
 import { SettingsModal } from "../components/SettingsModal";
+import { LimitedFeaturesInfoModal } from "../components/LimitedFeaturesInfoModal";
 
 
 
@@ -40,6 +41,7 @@ export default function Console() {
     <>
       <FeedModal setUserData={setUserData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <SettingsModal userData={userData} setUserData={setUserData} />
+      <LimitedFeaturesInfoModal />
       <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <NavBar notifications={userData.notifications} setUserData={setUserData} />
       <main className="flex">
