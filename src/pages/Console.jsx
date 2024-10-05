@@ -1,6 +1,6 @@
 //  React Hooks
 import { useEffect } from "react";
-import useUserData from '../hooks/useUserData';
+import useUserData, { forcedNotif } from '../hooks/useUserData';
 
 
 //  React Compontents
@@ -60,7 +60,7 @@ export default function Console() {
       <BugReportModal />
       <LimitedFeaturesInfoModal />
       <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
-      <NavBar notifications={userData.notifications} setUserData={setUserData} />
+      <NavBar notifications={userData.notifications} setUserData={setUserData} forcedNotif={forcedNotif} />
       <main className="flex">
         <FeedListSideBar feedListData={userData.feedList} setUserData={setUserData} />
         <OutputList outputsData={userData.outputs} setUserData={setUserData} />

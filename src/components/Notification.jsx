@@ -1,4 +1,4 @@
-export function Notification({ title, body, status, notificationId, setUserData, toast, timeAgo }) {
+export function Notification({ title, body, status, notificationId, setUserData, toast, timeAgo, forcedNotif }) {
   let statusClass = 'border-text';
   status == 'success' ? statusClass = 'border-green-400' : status == 'info' ? statusClass = 'border-gray-400' : statusClass = 'border-red-400';
 
@@ -10,7 +10,8 @@ export function Notification({ title, body, status, notificationId, setUserData,
         
         setUserData((currentUserData) => ({
           ...currentUserData,
-          notifications: [...currentUserData.notifications.map(notification => notification.notificationId == notificationId ? {...notification, toasted: true} : notification)]
+          notifications: [...currentUserData.notifications.map(notification => notification.notificationId == notificationId ? {...notification, toasted: true} : notification)],
+          forcedNotifDismissed: forcedNotif ? forcedNotif.notificationId == notiId : false
         }))
       }
       else {
@@ -18,7 +19,8 @@ export function Notification({ title, body, status, notificationId, setUserData,
 
         setUserData((currentUserData) => ({
           ...currentUserData,
-          notifications: [...currentUserData.notifications.filter(notification => notification.notificationId != notificationId)]
+          notifications: [...currentUserData.notifications.filter(notification => notification.notificationId != notificationId)],
+          forcedNotifDismissed: forcedNotif.notificationId == notiId
         }))
       }
     });

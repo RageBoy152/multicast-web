@@ -3,7 +3,7 @@ import { Notification } from './Notification';
 
 
 
-export function NotificationDropdown({ notifications, setUserData }) {
+export function NotificationDropdown({ notifications, setUserData, forcedNotif }) {
 
   function calcTimeAgo(timestamp) {
     let notiTime = new Date(timestamp);
@@ -65,7 +65,7 @@ export function NotificationDropdown({ notifications, setUserData }) {
         <p className="text-xs text-text-shade">Deleted automatically after 24 hours.</p>
       </div>
       <div className="flex flex-col gap-1 overflow-auto">
-        {notifications.length ? notifications.map(notification => <Notification key={notification.notificationId} {...notification} setUserData={setUserData} timeAgo={calcTimeAgo(notification.timestamp)} />) : <p className='text-text-shade text-center text-sm py-4'>No notifications</p>}
+        {notifications.length ? notifications.map(notification => <Notification key={notification.notificationId} {...notification} setUserData={setUserData} forcedNotif={forcedNotif} timeAgo={calcTimeAgo(notification.timestamp)} />) : <p className='text-text-shade text-center text-sm py-4'>No notifications</p>}
       </div>
     </div>
   )

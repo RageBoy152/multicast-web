@@ -3,7 +3,7 @@ import { toggleModal } from '../utils/toggleModal';
 
 
 
-export function NavBar({ notifications, setUserData }) {
+export function NavBar({ notifications, setUserData, forcedNotif }) {
 
   function toggleNotificationsDropdown() {
     $('#notifications-container').fadeToggle(200);
@@ -19,7 +19,7 @@ export function NavBar({ notifications, setUserData }) {
       <a onClick={toggleNotificationsDropdown} id="notifications-dropdown-btn" className="text-text-shade hover:text-text h-min text-base cursor-pointer"><i className="bi bi-bell"></i></a>
       <a onClick={() => toggleModal('bug-report-modal-container')} className="text-text-shade hover:text-text h-min text-base cursor-pointer"><i className="bi bi-bug"></i></a>
       <a onClick={() => toggleModal('settings-modal-container')} className="text-text-shade hover:text-text h-min text-base cursor-pointer"><i className="bi bi-gear"></i></a>
-      <NotificationDropdown notifications={notifications} setUserData={setUserData} />
+      <NotificationDropdown notifications={notifications} setUserData={setUserData} forcedNotif={forcedNotif} />
     </nav>
   )
 }
