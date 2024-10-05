@@ -13,6 +13,7 @@ export function ContextMenu({ setUserData, userData, setEditFeedObj, editFeedObj
     function getNotif(name) {
       return {
         notificationId: crypto.randomUUID(),
+        timestamp: new Date().toISOString(),
         title: `Deleted feed '${name}'`,
         status: 'success'
       }

@@ -12,6 +12,7 @@ import { FeedModal } from '../components/FeedModal';
 import { useState } from 'react';
 import { SettingsModal } from "../components/SettingsModal";
 import { LimitedFeaturesInfoModal } from "../components/LimitedFeaturesInfoModal";
+import { NotificationToastList } from "../components/NotificationToastList";
 
 
 
@@ -28,8 +29,15 @@ export default function Console() {
     window.addEventListener('storage', syncState)
 
 
+    const loadBlurCtxMenu = async () => {
+      await import('../utils/blurCtxMenu.js');
+    }
+    loadBlurCtxMenu();
+
+
     return () => {
-      window.removeEventListener('storage', syncState)
+      document.removeEventListener('click', () => {});
+      window.removeEventListener('storage', syncState);
     }
   }, [])
 
@@ -39,6 +47,7 @@ export default function Console() {
 
   return (
     <>
+      <NotificationToastList setUserData={setUserData} notifications={userData.notifications} />
       <FeedModal setUserData={setUserData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <SettingsModal userData={userData} setUserData={setUserData} />
       <LimitedFeaturesInfoModal />

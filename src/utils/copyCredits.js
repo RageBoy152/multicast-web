@@ -8,6 +8,7 @@ export function copyCredits(userData, setUserData, outputNamePassed, feedIdPasse
 
   let newNotificationObj = {
     notificationId: crypto.randomUUID(),
+    timestamp: new Date().toISOString(),
     title: `Copied credits for feed '${feedObj.feedName}'`,
     status: 'success'
   }

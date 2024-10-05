@@ -32,6 +32,7 @@ export function SettingsModal({ userData, setUserData }) {
       ...currentUserData,
       notifications: [{
         notificationId: crypto.randomUUID(),
+        timestamp: new Date().toISOString(),
         title: 'Copied saved config to clipboard',
         status: 'success'
       }, ...currentUserData.notifications]
@@ -68,6 +69,7 @@ export function SettingsModal({ userData, setUserData }) {
       ...parsedConfigInput,
       notifications: [{
         notificationId: crypto.randomUUID(),
+        timestamp: new Date().toISOString(),
         title: 'Edited config',
         status: 'success'
       }, ...parsedConfigInput.notifications]
@@ -83,12 +85,12 @@ export function SettingsModal({ userData, setUserData }) {
           <h3 className="text-xl">Settings</h3>
           <a className="cursor-pointer text-text-shade hover:text-text" onClick={toggleModalHandler}><i className="bi bi-x-lg"></i></a>
         </div>
-        <div className="flex w-11/12 flex-col gap-3 py-4">
+        <div className="flex w-11/12 flex-col gap-3 py-4 overflow-auto">
           <div className="flex flex-col">
             <p className="text-l">Config:</p>
             <p className="text-sm text-text-shade">Your feed and output configuration.</p>
             
-            <div className='h-[500px] my-3 relative'>
+            <div className='h-[300px] my-3 relative'>
               <textarea className='bg-secondary text-xs px-2 py-1 resize-none w-full h-full' readOnly={lockedTextarea} value={newConfig} onChange={(e) => setNewConfig(e.target.value)}></textarea>
               <div className="absolute top-3 end-3 gap-3 flex">
                 <a onClick={copyConfig} className='bg-primary hover:bg-primary/80 rounded cursor-pointer aspect-square w-[30px] flex items-center justify-center'><i className="bi bi-clipboard"></i></a>

@@ -1,11 +1,11 @@
 //  React Hooks
 import { useEffect } from "react";
 import useUserData from '../hooks/useUserData';
-import { OutputCardPreview } from "../components/OutputCardPreview";
 
 
 //  React Compontents
-// import { FeedListSideBar } from "./FeedListSideBar";
+import { OutputCardPreview } from "../components/OutputCardPreview";
+import { NotificationToastList } from "../components/NotificationToastList";
 
 
 
@@ -34,6 +34,7 @@ export default function Output() {
 
   return (
     <>
+      <NotificationToastList setUserData={setUserData} notifications={userData.notifications} />
       <OutputCardPreview outputFeeds={outputObj.feeds} {...outputObj} inOutput={true} setUserData={setUserData} userData={userData} />
     </>
   )

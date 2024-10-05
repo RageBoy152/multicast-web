@@ -45,6 +45,7 @@ export function FeedModal({ setUserData, editFeedObj, setEditFeedObj }) {
 
     let addFeedNotificationObj = {
       notificationId: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
       title: `${editFeedObj.feedName ? 'Edited' : 'Added'} feed '${newFeedName}'`,
       status: 'success'
     }
