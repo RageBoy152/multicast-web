@@ -18,7 +18,7 @@ Each output can have between 1 and 9 seperate feeds at once.
 ### Context Menu
 Each feed has a context menu (three dots) you can click, you can also right click to open this menu.
 In the context menu is buttons to edit, delete and copy credits. Credits will be copied in the format:
-[ Credits: [Feed name]\(<link_to_youtube_stream>) ]
+[ Credit: [Feed name]\(<link_to_youtube_stream>) ]
 
 
 ### Config editing
