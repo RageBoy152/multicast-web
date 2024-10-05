@@ -23,7 +23,7 @@ export function FeedModal({ setUserData, editFeedObj, setEditFeedObj }) {
     if (!newFeedName.match(/[\w]/)) { setNameInputErr('Invalid name'); invalid = true; }
     else { setNameInputErr(''); }
     
-    if (!newFeedSource.match(/^(https|http)+\:\/\/youtube+\.+com+(\/live|\/watch)+\?v=+[\w\-\_0-9]+$/)) { setSourceInputErr('Invalid source'); invalid = true; }
+    if (!newFeedSource.match(/^(https|http)+\:\/\/+(www.|)+youtube+\.+com+(\/live|\/watch)+\?v=+[\w\-\_0-9]+$/)) { setSourceInputErr('Invalid source'); invalid = true; }
     else  { setSourceInputErr(''); }
     
     

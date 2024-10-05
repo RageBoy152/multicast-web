@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { SettingsModal } from "../components/SettingsModal";
 import { LimitedFeaturesInfoModal } from "../components/LimitedFeaturesInfoModal";
 import { NotificationToastList } from "../components/NotificationToastList";
+import { BugReportModal } from "../components/BugReportModal";
 
 
 
@@ -35,6 +36,12 @@ export default function Console() {
     loadBlurCtxMenu();
 
 
+    const loadConsoleLog = async () => {
+      await import('../utils/logConsoleActivity.js');
+    }
+    loadConsoleLog();
+
+
     return () => {
       document.removeEventListener('click', () => {});
       window.removeEventListener('storage', syncState);
@@ -50,6 +57,7 @@ export default function Console() {
       <NotificationToastList setUserData={setUserData} notifications={userData.notifications} />
       <FeedModal setUserData={setUserData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <SettingsModal userData={userData} setUserData={setUserData} />
+      <BugReportModal />
       <LimitedFeaturesInfoModal />
       <ContextMenu setUserData={setUserData} userData={userData} editFeedObj={editFeedObj} setEditFeedObj={setEditFeedObj} />
       <NavBar notifications={userData.notifications} setUserData={setUserData} />

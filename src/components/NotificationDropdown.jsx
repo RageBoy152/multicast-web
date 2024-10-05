@@ -59,7 +59,7 @@ export function NotificationDropdown({ notifications, setUserData }) {
   
 
   return (
-    <div id="notifications-container" className="bg-primary absolute top-[50px] mr-8 w-3/12 max-h-80 z-50 flex flex-col" style={{display: "none"}}>
+    <div id="notifications-container" className="bg-primary absolute top-[50px] mr-28 w-3/12 max-h-80 z-50 flex flex-col" style={{display: "none"}}>
       <div className="flex flex-col py-1 px-3 border-b border-accent">
         <p className='h-[25px]'>Notifications</p>
         <p className="text-xs text-text-shade">Deleted automatically after 24 hours.</p>
