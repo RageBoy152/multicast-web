@@ -1,4 +1,4 @@
-# MultiCast Web - [https://multicast-web.netlify.app](https://multicast-web.netlify.app)
+# MultiCast Web - [https://multicast.watch](https://multicast.watch)
 
 MultiCast V2.0 for web is available in early access.
 There will be an update for the original [application version of MultiCast](https://github.com/RageBoy152/multicast) when it's ready.
