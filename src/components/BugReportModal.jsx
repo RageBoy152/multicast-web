@@ -37,7 +37,9 @@ export function BugReportModal() {
           <h3 className="text-xl">Report a Bug</h3>
           <a className="cursor-pointer text-text-shade hover:text-text" onClick={toggleModalHandler}><i className="bi bi-x-lg"></i></a>
         </div>
-        <form className="flex w-11/12 flex-col gap-5 py-4" id='bug-report-form' name='bug-report-form' method='POST' action='/' data-netlify={true}>
+        <form className="flex w-11/12 flex-col gap-5 py-4" id='bug-report-form' name='bug-report-form' method='POST' action='/'>
+          <input type="hidden" name="form-name" value="bug-report-form" />
+          
           <div className="flex flex-col gap-1">
             <label htmlFor="bug-description">Brief or detailed description</label>
             <textarea name="bug-description" id="bug-description" className='bg-secondary px-2 py-1 resize-none h-[120px]'></textarea>

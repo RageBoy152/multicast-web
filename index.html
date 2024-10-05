@@ -21,6 +21,13 @@
   </head>
 
   <body class="font-Quantico bg-body text-text">
+    <form name='bug-report-form' netlify netlify-honeypot="bot-field" hidden>
+        <textarea name="bug-description"></textarea>
+        <input type="file" name="screenshot" />
+        <input type="text" name="console" />
+    </form>
+
+
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
   </body>
