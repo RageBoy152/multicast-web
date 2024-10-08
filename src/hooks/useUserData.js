@@ -150,14 +150,9 @@ export default function useUserData(initialValue) {
     if (userData.version != version) {
       setUserData((currentUserData) => ({
         ...currentUserData,
+        notifications: [forcedNotif, ...currentUserData.notifications],
         forcedNotifDismissed: false,
         version: version
-      }))
-    }
-    if (!userData.notifications.find(notiObj => notiObj.notificationId == forcedNotif.notificationId) && !userData.forcedNotifDismissed) {
-      setUserData((currentUserData) => ({
-        ...currentUserData,
-        notifications: [forcedNotif, ...currentUserData.notifications]
       }))
     }
 
