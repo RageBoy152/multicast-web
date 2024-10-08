@@ -106,3 +106,9 @@
 
 .volumeInput:hover::-webkit-slider-thumb { @apply bg-accent/60; }
 .volumeInput::-webkit-slider-thumb:hover { @apply bg-accent/90; }
+
+
+
+
+.feedOutput .toggleSideBarBtn { opacity: 0.1; }
+.feedOutput:hover .toggleSideBarBtn { opacity: 1; }
