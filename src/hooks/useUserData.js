@@ -122,7 +122,7 @@ const defaultConfig = {
 
 
 export const forcedNotif = {
-  "notificationId": "f0f326f4-f781-4407-a571-751670a76547",
+  "notificationId": "f0f326f4-f781-4407-a571-751670a765471",
   "timestamp": new Date().toISOString(),
   "title": "New update - MultiCast V2.0.1",
   "body": "Read the release notes <a href='https://github.com/RageBoy152/multicast-web/releases/tag/2.0.1' target='_blank' class='text-text-shade hover:text-text underline'>here</a>",
