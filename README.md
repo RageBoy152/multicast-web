@@ -1,7 +1,8 @@
 # MultiCast Web - [https://multicast.watch](https://multicast.watch)
 
-MultiCast V2.0 for web is available in early access.
-There will be an update for the original [application version of MultiCast](https://github.com/RageBoy152/multicast) when it's ready.
+MultiCast is now available for the web.
+There is an application version you can download [here](https://multicast.watch/download)
+
 
 # How to Use
 
