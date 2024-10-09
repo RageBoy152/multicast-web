@@ -8,7 +8,7 @@ export default function Download() {
         <h1 className='text-[60px]'>MultiCast
           <span className='text-base text-text-shade'>V2.0.1</span>
         </h1>
-        <img src="../output-ui-screenshot.png" id='cta' className='w-11/12 lg:w-7/12' />
+        <img src="output-ui-screenshot.png" id='cta' className='w-11/12 lg:w-7/12' />
       </div>
       
       
