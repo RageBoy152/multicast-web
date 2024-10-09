@@ -28,7 +28,7 @@ export function LimitedFeaturesInfoModal() {
           </div>
           <div className="flex flex-col gap-4">
             <p className='text-sm'>These features are unable to be implemented due to security concerns. If it was up to me, they would be implemented.</p>
-            <p className='text-sm border-t border-accent pt-5'>To get the full Multicast experience, please consider downloading the <a className='text-text-shade hover:text-text underline' target='_blank' href="https://github.com/RageBoy152/multicast">Multicast App</a></p>
+            <p className='text-sm border-t border-accent pt-5'>To get the full Multicast experience, please consider downloading the <a className='text-text-shade hover:text-text underline' target='_blank' href="https://multicast.watch/download">Multicast App</a></p>
           </div>
         </div>
       </div>
