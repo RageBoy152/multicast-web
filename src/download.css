@@ -1,0 +1,14 @@
+#container-bg {
+  background: rgb(25,29,38);
+  background: linear-gradient(153deg, #262d3d 0%, #2f419c 70%, #364dc2 100%);
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: 50% 50%;
+}
+
+
+
+a#cta { box-shadow: 0 0 10px 3px #3b52c4; transition: 0.3s ease-in-out box-shadow }
+a#cta:hover { box-shadow: 0 0 20px 8px #415ad8; }
+
+img#cta { box-shadow: 0 0 15px 8px #3b52c4; }
