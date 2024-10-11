@@ -25,12 +25,14 @@ function openCtxMenu(e) {
 
 
 
-export function Feed({ outputName, feedId, videoId, sideBarHidden, volume, basisClass = '', heightClass = '', setUserData, userData }) {
+export function Feed({ outputName, feedId, videoId, volume, basisClass = '', heightClass = '', setUserData, userData, feedFuncBarMode }) {
   //  defines context dependant styles for different parts of the feedcard. context dependant meanin either in the feeds list or in the output preview
   let feedCardContextClassStyles = basisClass == '' ? 'w-9/12' : 'flex-grow';
 
   const [newVolume, setNewVolume] = useState(volume);
-  const [feedFuncsHidden, setFeedFuncsHidden] = useState(sideBarHidden);
+  
+  // const [feedFuncBarMode, setFeedFuncBarMode] = useState('always');
+  const [feedFuncsHidden, setFeedFuncsHidden] = useState(feedFuncBarMode == 'hover');
 
 
   function setVol(e) {
@@ -47,34 +49,16 @@ export function Feed({ outputName, feedId, videoId, sideBarHidden, volume, basis
   }
 
 
-
-  function toggleFeedFuncs() {
-    setFeedFuncsHidden(!feedFuncsHidden);
-
-
-    setUserData((currentData) => ({
-      ...currentData,
-      outputs: [
-        ...currentData.outputs.map(outputObj =>
-          outputObj.outputName == outputName ? {...outputObj, feeds: outputObj.feeds.map(feedObj => feedObj.feedId == feedId ? {...feedObj, sideBarHidden: !feedFuncsHidden} : feedObj)} : outputObj
-        )
-      ]
-    }))
-  }
+  useEffect(() => {
+    setFeedFuncsHidden(feedFuncBarMode == 'hover');
+  }, [feedFuncBarMode])
 
 
 
   return (
-    <div className={`${feedCardContextClassStyles} relative flex items-center feedOutput ${basisClass} ${heightClass}`}>
-      <a onClick={toggleFeedFuncs} className="bg-accent hover:bg-accent/80 toggleSideBarBtn z-50 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center mt-auto absolute bottom-5 start-2"><i className={`bi bi-arrow-bar-${feedFuncsHidden ? 'right' : 'left'}`}></i></a>
-
-      
-      <div className={`bg-primary flex flex-col items-center h-full transition-all duration-150 ease-linear ${feedFuncsHidden ? 'w-0' : 'w-[45px] px-2'}`} id={`feed_${feedId}_side-bar`}>
+    <div className={`${feedCardContextClassStyles} relative flex items-center feedOutput ${basisClass} ${heightClass}`} onMouseOver={() => feedFuncBarMode == 'hover' && setFeedFuncsHidden(false)} onMouseLeave={() => feedFuncBarMode == 'hover' && setFeedFuncsHidden(true)}>
+      <div className={`bg-primary flex flex-col items-center h-full transition-all duration-150 ease-linear ${feedFuncsHidden ? 'w-0' : 'w-[45px] px-2'}`}>
         {!feedFuncsHidden && (
-          // {/* <p className="text-xs h-[10%] flex items-center">{newVolume}%</p> */}
-          // {/* <input className="volumeInput h-[65%]" type="range" min={0} max={100} value={newVolume} onChange={setVol} /> */}
-
-          // {/*    FOR APP VERSION - MAKE THIS HEIGHT H-25%    */}
           <div className="h-[100%] flex flex-col justify-center gap-3">
             <a onClick={() => copyCredits(userData, setUserData, outputName, feedId)} className="bg-accent hover:bg-accent/80 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center"><i className="bi bi-clipboard"></i></a>
             <a href={`https://www.youtube.com/live_chat?is_popout=1&v=${videoId}`} target='_blank' className="bg-accent hover:bg-accent/80 cursor-pointer h-[30px] w-[30px] rounded flex items-center justify-center"><i className="bi bi-chat-left-text"></i></a>
@@ -83,7 +67,7 @@ export function Feed({ outputName, feedId, videoId, sideBarHidden, volume, basis
       </div>
       
       
-      <div className={`bg-accent ${feedFuncsHidden ? 'w-full' : 'w-[calc(100%-45px)]'} h-full`}>
+      <div className={`bg-accent transition-all duration-150 ease-linear ${feedFuncsHidden ? 'w-full' : 'w-[calc(100%-45px)]'} h-full`}>
         <ReactPlayer url={`https://youtube.com/embed/${videoId}?autoplay=1`} playing={true} controls={true} width={"100%"} height={"100%"} />
       </div>
     </div>

@@ -9,7 +9,7 @@ export function OutputList({ outputsData, setUserData }) {
         <div className="text-xxl flex items-center justify-between">
           <h1>Outputs</h1>
           <p className="text-xs">
-            MultiCast V2.0.1 | Developed by <a href="https://discord.com/users/693191740961718420" target='_blank' className="text-text-shade hover:text-text underline">Rage</a>
+            MultiCast V2.0.2 | Developed by <a href="https://discord.com/users/693191740961718420" target='_blank' className="text-text-shade hover:text-text underline">Rage</a>
           </p>
         </div>
         <a onClick={() => toggleModal('limited-features-modal-container')} className="mb-4 underline text-text-shade hover:text-text text-xs cursor-pointer">Why are some features disabled?</a>

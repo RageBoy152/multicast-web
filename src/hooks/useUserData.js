@@ -115,6 +115,9 @@ const defaultConfig = {
       ]
     }
   ],
+  "preferences": {
+    "feedFuncBarMode": "always"
+  },
   "notifications": [],
   "version": "2.0.1"
 }
@@ -124,13 +127,13 @@ const defaultConfig = {
 export const forcedNotif = {
   "notificationId": "f0f326f4-f781-4407-a571-751670a765471",
   "timestamp": new Date().toISOString(),
-  "title": "New update - MultiCast V2.0.1",
-  "body": "Read the release notes <a href='https://github.com/RageBoy152/multicast-web/releases/tag/2.0.1' target='_blank' class='text-text-shade hover:text-text underline'>here</a>",
+  "title": "New update - MultiCast V2.0.2",
+  "body": "Read the release notes <a href='https://github.com/RageBoy152/multicast-web/releases/tag/2.0.2' target='_blank' class='text-text-shade hover:text-text underline'>here</a>",
   "status": "info",
   "toasted": true
 }
 
-const version = "2.0.1";
+const version = "2.0.2";
 
 
 function getData(initialValue) {

@@ -20,7 +20,7 @@ export function OutputCardPreview({ outputFeeds, outputName, inOutput, setUserDa
         if (outputFeed.feedId) {
           //  return feed card with preview mode
           return (
-            inOutput ? <Feed key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} setUserData={setUserData} userData={userData} outputName={outputName} /> : <FeedCard key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} outputName={outputName} setUserData={setUserData} feedIndex={i} />
+            inOutput ? <Feed key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} setUserData={setUserData} userData={userData} outputName={outputName} feedFuncBarMode={userData.preferences.feedFuncBarMode} /> : <FeedCard key={outputFeed.feedId} {...outputFeed} {...outputPreviewClassNameProps} outputName={outputName} setUserData={setUserData} feedIndex={i} />
           )
         }
         else {
