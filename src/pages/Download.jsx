@@ -6,7 +6,7 @@ export default function Download() {
       
       <div className="w-10/12 max-w-[1300px] flex gap-3 justify-between items-center flex-col-reverse lg:items-end lg:flex-row lg:gap-0">
         <h1 className='text-[60px]'>MultiCast
-          <span className='text-base text-text-shade'>V2.0.8</span>
+          <span className='text-base text-text-shade'>V2.0.9</span>
         </h1>
         <img src="output-ui-screenshot.png" id='cta' className='w-11/12 lg:w-7/12' />
       </div>
@@ -17,7 +17,7 @@ export default function Download() {
         <h2 className="text-base text-text-shade"><i className="bi bi-broadcast-pin"></i> Starbase, Tx</h2>
 
         <div className="flex mt-6 gap-8 justify-center lg:justify-start lg:mt-4">
-          <a className='text-xl bg-body hover:bg-body/90 transition-colors ease-in-out duration-150 px-10 py-2' id='cta' href="https://github.com/RageBoy152/multicast/releases/download/2.0.8/MultiCast-Setup-2.0.8.exe" target='_blank'>Download</a>
+          <a className='text-xl bg-body hover:bg-body/90 transition-colors ease-in-out duration-150 px-10 py-2' id='cta' href="https://github.com/RageBoy152/multicast/releases/download/2.0.9/MultiCast-Setup-2.0.9.exe" target='_blank'>Download</a>
           <a className='text-xl bg-body hover:bg-body/75 transition-colors ease-in-out duration-150 px-4 py-2' href="https://github.com/RageBoy152/multicast" target='_blank'><i className="bi bi-github"></i></a>
         </div>
       </div>
